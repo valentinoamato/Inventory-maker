@@ -101,7 +101,7 @@ def menu1():            #Main menu
     elif i == "exit":#If the user wants to exit the program
         exit()
 
-def menu2(ivt):#Displays the information of an inventory
+def menu2(ivt):#Displays the information of an inventory. Takes the name of the inventory (ivt)
     print("\n"*3)
     print(f"You are now in the following inventory: {ivt}")
     dct = e.read()#reads the json
@@ -148,9 +148,9 @@ def menu2(ivt):#Displays the information of an inventory
     if i == "s":    #If the user wants to see a new inventory
         i = input("\n\nEnter the number of the item\nOr enter 'b' to go back: ") #Opens the desired inventory in the menu 2
         if i == "b": #If the user wants to go back
-            menu1()   #Goes back to the previous menu
+            menu2(ivt)   #Goes back to the previous menu
         else:        #If not
-            menu2(i) #The menu2 is called with the number of the inventory that the user wants to see
+            menu3(ivt,(itms[int(i)-1]))
 
     elif i == "c":    #If the user wants to create a new inventory
         i = input("\n\nEnter the name of the new item\nOr enter 'b' to go back: ")#Saves the user input
@@ -192,7 +192,7 @@ def menu2(ivt):#Displays the information of an inventory
             e.save(dct)#Saves the changes
             menu2(ivt)  #Goes back to menu 2
     elif i == "b":
-        menu2(ivt)
+        menu1()
 
     elif i == "exit":#If the user wants to exit the program
         exit()
@@ -201,7 +201,79 @@ def exit():
     print("Made by Valentino Amato")
     print("Check other projects: https://github.com/valentinoamato")
 
+def menu3(ivt,itm): #Displays the information of a selected item. Takes the name of the inventory (ivt), and the name of the item (itm)    
+    print("\n"*3)
+    dct = e.read()#reads the json
+    info = dct[ivt][itm]  #Stores the information of the item
 
+    if not info:                  #If there is no info
+        print(f"The selected item ({itm} in the inventory {ivt}) has no description.")
+        print("\n"*3)
+        print("Enter 'c' to add a description.")
+        print("Enter 'exit' to exit the program.")     
+        print("Enter 'b' to go back.")     
+        i=input("Operation: ")
+
+        if i == "c":    #If the user wants to add a description
+            i = input("\n\nEnter the name of the new description\nOr enter 'b' to go back: ")#Saves the user input
+            if i == "b": #If the user wants to go back
+                menu2(ivt) #Goes back to the previous menu
+
+            else:
+                print("Description added successfully!")
+                dct[ivt][itm] = i #Adds the new description
+                e.save(dct)#Saves the changes
+                menu3(ivt,itm)  #Goes back to menu 3
+        
+        elif i == "exit":#If the user wants to exit the program
+            exit()
+
+        elif i == "b":#If the user wants to go back
+            menu2(ivt)
+
+    else:               #If the item has info
+        print(f"The selected item ({itm} in the inventory {ivt}) has the following description:")
+        print("\n"*2)
+        print(f"-{info}")
+        print("\n"*2)
+        print("Enter 'c' to change the description.")
+        print("Enter 'd' to delete the description.")
+        print("Enter 'b' to go back.")
+        print("Enter 'exit' to exit the program.")
+        i=input("Operation: ")
+
+    if i == "c":    #If the user wants to change the description
+            i = input("\n\nEnter the name of the new description\nOr enter 'b' to go back: ")#Saves the user input
+            if i == "b": #If the user wants to go back
+                menu2(ivt) #Goes back to the previous menu
+
+            else:
+                print("Description modified successfully!")
+                dct[ivt][itm] = i #Adds the new description
+                e.save(dct)#Saves the changes
+                menu3(ivt,itm)  #Goes back to menu 3
+
+    elif i == "d":    #If the user wants to delete an inventory
+        print(f"You are about to delete the description of item {itm} in inventory {ivt}.")
+        i = input("\n\nDo you want to continue? (Y/N): ")#Saves the user input
+        if i == "N": #If the user wants to go back
+            menu2(ivt) #Goes back to the previous menu
+
+        elif i == "Y":
+            print("Description added successfully!")
+            dct[ivt][itm] = None #Adds the new description
+            e.save(dct)#Saves the changes
+            menu3(ivt,itm)  #Goes back to menu 3
+
+    elif i == "exit":#If the user wants to exit the program
+        exit()
+
+    elif i == "b":
+        menu2(ivt)
+def exit():
+    print("\nThanks for using the program!")#Prints some messagess
+    print("Made by Valentino Amato")
+    print("Check other projects: https://github.com/valentinoamato")
 
 
 menu1()    #Starts the program in the main menu
