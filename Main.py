@@ -55,13 +55,13 @@ def menu1():            #Main menu
     i=input("Operation: ")
 
     if i == "s":    #If the user wants to see a new inventory
-        try:
+        try:          #Tries to do the following        
             i = input("\n\nEnter the number of the inventory\nOr enter 'b' to go back: ") #Opens the desired inventory in the menu 2
             if i == "b": #If the user wants to go back
                 menu1()   #Goes back to the previous menu
             else:        #If not
                 menu2(ivts[int(i)-1]) #The menu2 is called with the number of the inventory that the user wants to see
-        except:
+        except:       #If an error occurs     
             print("\n\nERROR: invalid input.")
             menu1()
 
@@ -81,7 +81,7 @@ def menu1():            #Main menu
             menu1()           #Goes back to menu1
         
     elif i == "r":    #If the user wants to rename an inventory
-        try:
+        try:          #Tries to do the following
             i = input("\n\nEnter the number of the inventory\nOr enter 'b' to go back: ")#Saves the user input
             if i == "b": #If the user wants to go back
                 menu1()   #Goes back to the previous menu
@@ -98,12 +98,12 @@ def menu1():            #Main menu
                 dct[j] = dct.pop(ivts[int(i)-1])#Renames an inventory
                 e.save(dct)#Saves the changes
                 menu1()  #Goes back to menu1
-        except:
+        except:       #If an error occurs
             print("\n\nERROR: invalid input.")
             menu1()
 
     elif i == "d":    #If the user wants to delete an inventory
-        try:
+        try:          #Tries to do the following
             i = input("\n\nEnter the number of the inventory\nOr enter 'b' to go back: ")#Saves the user input
             if i == "b": #If the user wants to go back
                 menu1()   #Goes back to the previous menu
@@ -112,7 +112,7 @@ def menu1():            #Main menu
                 print("Inventory deleted successfully!")
                 e.save(dct)#Saves the changes
                 menu1()  #Goes back to menu1
-        except:
+        except:       #If an error occurs
             print("\n\nERROR: invalid input.")
             menu1()
 
@@ -174,13 +174,13 @@ def menu2(ivt):#Displays the information of an inventory. Takes the name of the 
     i=input("Operation: ")
 
     if i == "s":    #If the user wants to see a new inventory
-        try:
+        try:          #Tries to do the following
             i = input("\n\nEnter the number of the item\nOr enter 'b' to go back: ") #Opens the desired inventory in the menu 2
             if i == "b": #If the user wants to go back
                 menu2(ivt)   #Goes back to the previous menu
             else:        #If not
                 menu3(ivt,(itms[int(i)-1]))
-        except:
+        except:       #If an error occurs
             print("\n\nERROR: invalid input.")
             menu2(ivt)
 
@@ -199,7 +199,7 @@ def menu2(ivt):#Displays the information of an inventory. Takes the name of the 
             menu2(ivt)  #Goes back to menu 2
 
     elif i == "r":    #If the user wants to rename an inventory
-        try:
+        try:          #Tries to do the following
             i = input("\n\nEnter the number of the item\nOr enter 'b' to go back: ")#Saves the user input
             if i == "b": #If the user wants to go back
                 menu2(ivt)   #Goes back to the previous menu
@@ -215,12 +215,12 @@ def menu2(ivt):#Displays the information of an inventory. Takes the name of the 
                 dct[ivt][j] = dct[ivt].pop(itms[int(i)-1])#Renames the selected item
                 e.save(dct)#Saves the changes
                 menu2(ivt)  #Goes back to menu 2
-        except:
+        except:       #If an error occurs
             print("\n\nERROR: invalid input.")
             menu2(ivt)
 
     elif i == "d":    #If the user wants to delete an inventory
-        try:
+        try:          #Tries to do the following
             i = input("\n\nEnter the number of the inventory\nOr enter 'b' to go back: ")#Saves the user input
             if i == "b": #If the user wants to go back
                 menu2(ivt)   #Goes back to the previous menu
@@ -229,7 +229,7 @@ def menu2(ivt):#Displays the information of an inventory. Takes the name of the 
                 print("Inventory deleted successfully!")
                 e.save(dct)#Saves the changes
                 menu2(ivt)  #Goes back to menu 2
-        except:
+        except:       #If an error occurs
             print("\n\nERROR: invalid input.")
             menu2(ivt)
 
@@ -302,7 +302,7 @@ def menu3(ivt,itm): #Displays the information of a selected item. Takes the name
             menu3(ivt,itm)  #Goes back to menu 3
 
     elif i == "d":    #If the user wants to delete an inventory
-        try:
+        try:          #Tries to do the following
             print(f"You are about to delete the description of item {itm} in inventory {ivt}.")
             i = input("\n\nDo you want to continue? (Y/N): ")#Saves the user input
             if i == "N": #If the user wants to go back
@@ -313,7 +313,7 @@ def menu3(ivt,itm): #Displays the information of a selected item. Takes the name
                 dct[ivt][itm] = None #Adds the new description
                 e.save(dct)#Saves the changes
                 menu3(ivt,itm)  #Goes back to menu 3
-        except:
+        except:       #If an error occurs
             print("\n\nERROR: invalid input.")
             menu3(ivt,itm)
 
@@ -328,7 +328,7 @@ def menu3(ivt,itm): #Displays the information of a selected item. Takes the name
         print("\n\nERROR: invalid input.")
         menu3(ivt,itm)
 
-def exit():
+def exit():            #This function will be executed when the user wants to leave the program
     print("\nThanks for using the program!")#Prints some messagess
     print("Made by Valentino Amato")
     print("Check other projects: https://github.com/valentinoamato")
