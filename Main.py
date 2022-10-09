@@ -1,6 +1,13 @@
 from tkinter import *
 from engine import start,read,save
 
+try:               #Tries to read the json file
+    i=read()
+except:            #If it cant do it
+    start()        #Calls a function that creates the json file
+                   #in which all the data will be stored
+
+
 # create the root window
 root = Tk()
 root.title('Listbox')
