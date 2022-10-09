@@ -1,3 +1,4 @@
+#This file will handle the JSON
 import os
 import json
 #Required libraries are imported
