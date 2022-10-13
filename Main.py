@@ -1,5 +1,5 @@
 from tkinter import *      #Imports tkinter for the UI
-from engine import start,read,save #Imports engine to interact with the JSON
+from engine import start,read,save,path #Imports engine to interact with the JSON
 import webbrowser          #Imports webbrowser to create a link
 
 try:               #Tries to read the json file
@@ -28,6 +28,9 @@ help=[   #Stores the help message
 "The buttons 'New', 'Edit' and 'Delete' all work on Inventories, Items and data."
 "The button 'Clear' cleans the text-entry.",
 "Mutiple elements without or with equal name are not allowed.",
+"\n",
+f"To export the data simply copy the .json file located in {path}",
+f"To import data replace the mentioned .json file with the one desired.",
 "\n",
 "For more information or to send feedback click on 'Github repository' in the down right corner."
 ]
@@ -202,7 +205,7 @@ def scrollbarlistbox(data):  #Displays a scrollbar-listbox with the given list o
     listbox = Listbox(  #Creates the listbox and sets the previous tuple as the variable to show
         root,
         listvariable=var,
-        height=40,
+        height=30,
         width=200,
         borderwidth=3
 
