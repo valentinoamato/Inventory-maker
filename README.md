@@ -24,9 +24,15 @@ There also is a 'Help' button available.
 
 ---
 > ## How to use
-To create your first inventory enter its name in the text-entry and press 'New'. You can now select this inventory by clicking it and then change its name (by pressing the 'Edit' button), delete it ('Delete') or see its items ('Enter'). If 'Enter' was pressed you will see the items of the selected inventory, in that menu you can again use all the previous buttons to create, edit or delete items.
+
+To create your first inventory enter its name in the text-entry and press 'New'. You can now select this inventory by clicking it and then change its name (by pressing the 'Edit' button), delete it ('Delete') or see its items ('Enter'). 
+
+If 'Enter' was pressed you will see the items of the selected inventory, in that menu you can again use all the previous buttons to create, edit or delete items.
 If you select an item and press 'Enter' you will now see the data of the item and you can again use the buttons to perform all the previous operations.
-By pressing 'Back' the program will show the previous windows: Data --> Item --> Inventory 
+By pressing 'Back' the program will show the previous windows in this order:
+
+  **Data --> Item --> Inventory** 
+
 The 'Help' button will display instructions on how to use the program along with a link to the [Github repository of the proyect.](https://github.com/valentinoamato/Inventory-maker)
 
 
